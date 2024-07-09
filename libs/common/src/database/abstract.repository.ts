@@ -28,7 +28,7 @@ export abstract class AbstractRepository <TDocument extends AbstractDocument>{
     {
         const document = await this.model.findOne(filterquery).lean<TDocument>(true)
 
-        if (document){
+        if (!document){
             this.logger.warn("document was not found with query",filterquery);
             throw new NotFoundException("Document was not found");
         }
@@ -40,7 +40,7 @@ export abstract class AbstractRepository <TDocument extends AbstractDocument>{
     {
         const document = await this.model.findOneAndUpdate(filterquery,update,{new:true}).lean<TDocument>(true)
         
-        if (document){
+        if (!document){
             this.logger.warn("document was not found with query",filterquery);
             throw new NotFoundException("Document was not found");
         }
