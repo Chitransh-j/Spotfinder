@@ -12,4 +12,4 @@ export class UserDocument extends AbstractDocument {
 }
 
 //creates class for the above schema 
-export const userschema = SchemaFactory.createForClass(UserDocument)
+export const Userschema = SchemaFactory.createForClass(UserDocument)
